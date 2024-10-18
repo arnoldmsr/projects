@@ -49,7 +49,6 @@ void dijkstra(int inicio, vector<vector<Arista>>& grafo, vector<int>& capacidade
     // Imprimir las distancias desde el nodo inicial al resto de nodos
     for (int i = 0; i < numNodos; ++i) {
         cout << "Distancia desde " << inicio + 1 << " a " << i + 1 << " es " << (distancias[i] == INFINITO ? "INFINITO" : to_string(distancias[i])) << endl;
-        
         // Imprimir la ruta
         if (distancias[i] != INFINITO) {
             stack<int> ruta;
