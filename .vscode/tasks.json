@@ -1,9 +1,73 @@
 {
+  "version": "2.0.0",
   "tasks": [
     {
       "type": "cppbuild",
+      "label": "Compilar sin enlazar",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-fdiagnostics-color=always",
+        "-g",
+        "-c",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.obj"
+      ],
+      "options": {
+        "cwd": "C:/msys64/ucrt64/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build"
+    },
+    {
+      "type": "cppbuild",
+      "label": "enlazar archivo objeto",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-fdiagnostics-color=always",
+        "-g",
+        "${fileDirname}\\${fileBasenameNoExtension}.obj",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "C:/msys64/ucrt64/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "compilador: g++"
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++ compilar archivo activo",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "C:/msys64/ucrt64/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "compilador: g++"
+    },
+    {
+      "type": "cppbuild",
       "label": "C/C++: g++.exe compilar archivo activo",
-      "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
       "args": [
         "-fdiagnostics-color=always",
         "-g",
@@ -12,14 +76,16 @@
         "${fileDirname}\\${fileBasenameNoExtension}.exe"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "C:/msys64/ucrt64/bin"
       },
       "problemMatcher": [
         "$gcc"
       ],
-      "group": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "detail": "Tarea generada por el depurador."
     }
-  ],
-  "version": "2.0.0"
+  ]
 }
