@@ -66,7 +66,7 @@
     },
     {
       "type": "cppbuild",
-      "label": "C/C++: g++.exe compilar archivo activo",
+      "label": "C/C++: g++ compilar archivo activo",
       "command": "C:/msys64/ucrt64/bin/g++.exe",
       "args": [
         "-fdiagnostics-color=always",
