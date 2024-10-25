@@ -1,91 +1,45 @@
 {
-  "version": "2.0.0",
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "Compilar sin enlazar",
-      "command": "g++",
+      "label": "C/C++: cl.exe compilar archivo activo",
+      "command": "cl.exe",
       "args": [
-        "-std=c++17",
-        "-fdiagnostics-color=always",
-        "-g",
-        "-c",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.obj"
+        "/Zi",
+        "/EHsc",
+        "/nologo",
+        "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${file}"
       ],
       "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
+        "cwd": "${fileDirname}"
       },
       "problemMatcher": [
-        "$gcc"
-      ],
-      "group": "build"
-    },
-    {
-      "type": "cppbuild",
-      "label": "enlazar archivo objeto",
-      "command": "g++",
-      "args": [
-        "-std=c++17",
-        "-fdiagnostics-color=always",
-        "-g",
-        "${fileDirname}\\${fileBasenameNoExtension}.obj",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
-      },
-      "problemMatcher": [
-        "$gcc"
+        "$msCompile"
       ],
       "group": "build",
-      "detail": "compilador: g++"
-    },
-    {
-      "type": "cppbuild",
-      "label": "C/C++: g++ compilar archivo activo",
-      "command": "g++",
-      "args": [
-        "-std=c++17",
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": "build",
-      "detail": "compilador: g++"
-    },
-    {
-      "type": "cppbuild",
-      "label": "C/C++: g++ compilar archivo activo",
-      "command": "C:/msys64/ucrt64/bin/g++.exe",
-      "args": [
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe"
-      ],
-      "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
       "detail": "Tarea generada por el depurador."
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: cl.exe compilar archivo activo",
+      "command": "cl.exe",
+      "args": [
+        "/Zi",
+        "/EHsc",
+        "/nologo",
+        "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$msCompile"
+      ],
+      "group": "build",
+      "detail": "compilador: cl.exe"
     }
-  ]
+  ],
+  "version": "2.0.0"
 }
