@@ -20,7 +20,11 @@
       "problemMatcher": [
         "$gcc"
       ],
-      "group": "build"
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "compilador: g++"
     },
     {
       "type": "cppbuild",
@@ -40,7 +44,10 @@
       "problemMatcher": [
         "$gcc"
       ],
-      "group": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "detail": "compilador: g++"
     },
     {
@@ -54,26 +61,6 @@
         "${file}",
         "-o",
         "${fileDirname}\\${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": "build",
-      "detail": "compilador: g++"
-    },
-    {
-      "type": "cppbuild",
-      "label": "C/C++: g++ compilar archivo activo",
-      "command": "C:/msys64/ucrt64/bin/g++.exe",
-      "args": [
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe"
       ],
       "options": {
         "cwd": "C:/msys64/ucrt64/bin"

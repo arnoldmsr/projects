@@ -1,17 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <unordered_map>
-#include <fstream>
+#include <iostream>         // Biblioteca para entrada y salida estándar
+#include <fstream>          // Biblioteca para operaciones de archivos
+#include <vector>           // Biblioteca para utilizar el contenedor vector
+#include <string>           // Biblioteca para utilizar el contenedor string
+#include <algorithm>        // Biblioteca para funciones de algoritmos como transform
+#include <unordered_map>    // Incluir la biblioteca  unordered_map
 
 using namespace std;
 
 static unordered_map<string, char> mapaAcentos = {
     {"á", 'a'}, {"é", 'e'}, {"í", 'i'},
-    {"ó", 'o'}, {"ú", 'u'}, {"ü", 'u'},
-    {"Á", 'A'}, {"É", 'E'}, {"Í", 'I'},
-    {"Ó", 'O'}, {"Ú", 'U'}, {"Ü", 'U'}
+    {"ó", 'o'}, {"ú", 'u'}, {"ü", 'u'}
 };
 
 string normalizarPalabra(const string& palabra, const unordered_map<string, char>& mapaAcentos) {
