@@ -2,9 +2,10 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: cl.exe compilar archivo activo",
-      "command": "cl.exe",
+      "label": "C/C++ compilar y depurar el archivo activo",
+      "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\bin\\Hostx64\\x64\\cl.exe",
       "args": [
+        "/utf-8",
         "/Zi",
         "/EHsc",
         "/nologo",
@@ -22,9 +23,10 @@
     },
     {
       "type": "cppbuild",
-      "label": "C/C++: cl.exe compilar archivo activo",
-      "command": "cl.exe",
+      "label": "C/C++ compilar archivo activo",
+      "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\bin\\Hostx64\\x64\\cl.exe",
       "args": [
+        "/utf-8",
         "/Zi",
         "/EHsc",
         "/nologo",
@@ -38,6 +40,30 @@
         "$msCompile"
       ],
       "group": "build",
+      "detail": "compilador: cl.exe"
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: cl.exe compilar archivo activo",
+      "command": "cl.exe",
+      "args": [
+        "/utf-8",
+        "/Zi",
+        "/EHsc",
+        "/nologo",
+        "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$msCompile"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "detail": "compilador: cl.exe"
     }
   ],

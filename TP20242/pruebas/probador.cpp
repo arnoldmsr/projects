@@ -4,63 +4,63 @@
 #include <string>           // Biblioteca para utilizar el contenedor string
 #include <algorithm>        // Biblioteca para funciones de algoritmos como transform
 #include <map>              // Incluir la biblioteca map
+#include <locale>
+#include <codecvt>
 
 using namespace std;
 
-map<char, int> crearMapa() {
-    map<char, int> mapa;
-    string caracteres = "AaÁáBbCcDdEeÉéFfGgHhIiÍíJjKkLlMmNnÑñOoÓóPpQqRrSsTtUuÚúVvWwXxYyZz";
+map<char32_t, int> crearMapa() {
+    map<char32_t, int> mapa;
+    u32string caracteres = U"AaÁáBbCcDdEeÉéFfGgHhIiÍíJjKkLlMmNnÑñOoÓóPpQqRrSsTtUuÚúVvWwXxYyZz";
     for (int i = 0; i < caracteres.size(); ++i) {
         mapa[caracteres[i]] = i;
     }
-    return mapa; 
+    return mapa;
 }
 
-// Función para leer las palabras desde el archivo
-vector<string> leerArchivo(const string& nombreArchivo) {
+bool comparacionManual(const u32string &a, const u32string &b, const map<char32_t, int> &mapa) {
+    size_t minLength = min(a.size(), b.size());
+    for (size_t i = 0; i < minLength; ++i) {
+        if (mapa.at(a[i]) != mapa.at(b[i])) {
+            return mapa.at(a[i]) > mapa.at(b[i]);
+        }
+    }
+    return a.size() > b.size();
+}
+
+vector<u32string> leerArchivo(const string &nombreArchivo) {
     ifstream archivo(nombreArchivo);
-    vector<string> palabras;
-    string palabra;
+    vector<u32string> palabras;
+    wstring_convert<codecvt_utf8<char32_t>, char32_t> convert;
+    string linea;
 
     if (archivo.is_open()) {
-        while (getline(archivo, palabra)) {
-            palabras.push_back(palabra);
+        while (getline(archivo, linea)) {
+            palabras.push_back(convert.from_bytes(linea));
         }
         archivo.close();
-    }
-    else {
+    } else {
         cerr << "No se pudo abrir el archivo." << endl;
     }
 
     return palabras;
 }
-bool comparacionManual(const string& a, const string& b, const map<char, int>& mapa) {
-    size_t minLength = min(a.size(), b.size());
-    for (size_t i = 0; i < minLength; ++i) {
-        if (mapa.at(a[i]) != mapa.at(b[i])) {
-            return mapa.at(a[i]) > mapa.at(b[i]);
-        } 
-    }
-    return a.size() > b.size();
-}
 
 int main() {
-    // Establecer la localización en español 
-    locale loc("es_ES");
+    setlocale(LC_ALL, "es_ES.UTF-8");
 
-    // Nombre del archivo
-    string nombreArchivo = "C:/Users/Arnoldmsr/source/repos/tp324_2024-2/obj6/palabras.txt";
+    string nombreArchivo = "C:\\Users\\Arnoldmsr\\projects\\TP20242\\palabras.txt";
+    vector<u32string> palabras = leerArchivo(nombreArchivo);
+    map<char32_t, int> mapa = crearMapa();
 
-    // Leer las palabras del archivo
-    vector<string> palabras = leerArchivo(nombreArchivo);
+    sort(palabras.begin(), palabras.end(), [&](const u32string &a, const u32string &b) {
+        return comparacionManual(a, b, mapa);
+    });
 
-    // Ordenar las palabras de Z a A
-    sort(palabras.begin(), palabras.end(), greater<string>());
-
-    // Imprimir las palabras ordenadas
     cout << "Palabras ordenadas de Z a A:" << endl;
-    for (const string& palabra : palabras) {
-        cout << palabra << endl;
+    wstring_convert<codecvt_utf8<char32_t>, char32_t> convert;
+    for (const u32string &palabra : palabras) {
+        cout << convert.to_bytes(palabra) << endl;
     }
 
     return 0;
