@@ -8,6 +8,7 @@ Pingüino
 Constitucionalidad
 Interesantísimo
 Ñandú
+<<<<<<< HEAD
 Niñería
 Corazón
 Electroencefalograma
@@ -18,3 +19,23 @@ Reloj
 Nuñez
 Acentuación
 Lingüística
+=======
+Manzana
+Elefante
+Murciélago
+Cuchara
+Zapato
+Guitarra
+Hola
+Océano
+Rápido
+Silla
+Ventana
+Ñu
+Perro
+Ñora
+Flor
+Mesa
+Cuaderno
+Baño
+>>>>>>> 4d2f0e5dfb2e1b88c0d98360cecd046f02b93072

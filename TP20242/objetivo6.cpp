@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <fstream>
 #include <vector>
 #include <string>
@@ -12,6 +13,21 @@ static unordered_map<char, char> mapaAcentos = {
     {'á', 'a'}, {'Á', 'a'}, {'é', 'e'}, {'É', 'e'},
     {'í', 'i'},{'Í', 'i'}, {'ó', 'o'}, {'Ó', 'o'},
     {'ú', 'u'}, {'ü', 'u'},{'Ú', 'u'}, {'Ü', 'u'}
+=======
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+#include <fstream>
+
+using namespace std;
+
+static unordered_map<string, char> mapaAcentos = {
+    {"á", 'a'}, {"é", 'e'}, {"í", 'i'},
+    {"ó", 'o'}, {"ú", 'u'}, {"ü", 'u'},
+    {"Á", 'A'}, {"É", 'E'}, {"Í", 'I'},
+    {"Ó", 'O'}, {"Ú", 'U'}, {"Ü", 'U'}
+>>>>>>> 4d2f0e5dfb2e1b88c0d98360cecd046f02b93072
 };
 
 // Función para convertir una palabra en minúsculas
