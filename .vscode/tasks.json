@@ -15,66 +15,9 @@
         "cwd": "${fileDirname}"
       },
       "problemMatcher": [
-<<<<<<< HEAD
         "$msCompile"
       ],
       "group": "build",
-=======
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "detail": "compilador: g++"
-    },
-    {
-      "type": "cppbuild",
-      "label": "enlazar archivo objeto",
-      "command": "g++",
-      "args": [
-        "-std=c++17",
-        "-fdiagnostics-color=always",
-        "-g",
-        "${fileDirname}\\${fileBasenameNoExtension}.obj",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "detail": "compilador: g++"
-    },
-    {
-      "type": "cppbuild",
-      "label": "C/C++: g++ compilar archivo activo",
-      "command": "g++",
-      "args": [
-        "-std=c++17",
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "C:/msys64/ucrt64/bin"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
->>>>>>> 4d2f0e5dfb2e1b88c0d98360cecd046f02b93072
       "detail": "Tarea generada por el depurador."
     },
     {
